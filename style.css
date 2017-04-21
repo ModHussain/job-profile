@@ -1,0 +1,43 @@
+
+
+
+.bar{
+	background-color:	#90EE90;
+	
+	
+	box-shadow: 0 1px 1px #ccc;
+	width: 450px;
+	padding: 4px;
+	
+}
+
+.bar input{
+	
+	background:#fff no-repeat 13px 13px;
+	width: 100%;
+	padding: 15px 0;
+	color: #738289;
+	font-weight: bold;
+	text-indent: 40px;
+}
+
+ul{
+	list-style: none;
+	width: 400px;
+	
+	
+}
+
+ul li{
+	
+	border-bottom: 3px solid #00FA9A;
+	padding: 13px;
+	overflow: hidden;
+}
+
+ul li p{
+	margin-left: 75px;
+	font-weight: bold;
+	padding-top: 12px;
+	color:#6e7a7f;
+}

@@ -1,0 +1,65 @@
+<html ng-app="myApp">
+	<head>
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js">
+	</script>
+
+<title>Credo job Portal</title>
+    <link rel='icon' href="webs.jpg" type='image/jpg'/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="angular.min.js"></script>
+  <link href="style.css" rel="stylesheet" />	
+	<script>
+	myApp=angular.module('myApp',[]);
+	myApp.controller('myController',function($scope,$http){
+		$http.get('data.json').success(function(response){
+			$scope.myData = response;
+		});
+		$scope.removeName = function(row) {
+			$scope.myData.splice($scope.myData.indexOf(row),1);
+		}
+	});
+	</script>
+	</head>
+	<body ng-controller="myController" style="background-color:#ADD8E6">
+	<div class="container-fluid">
+  
+  <div class="page-header" style="background-color:#ffffff">
+  <center><font style="font-size:75px;font-family:Gabriola;font-weight" color="black"> Credo job Portal</font></center></h1>
+</div></div>
+<center>
+		
+		<table style="width:1450px;padding=2" border="2" width="100%" class="table table-hover;table-striped" >
+<tr style="text-align:center">
+<thead><th>JOB<input type="text" ng-model="search.Job" /></div></th>
+<th>LOCATION<input type="text" ng-model="search.Location" /></th>
+<th>SALARY<input type="text" ng-model="search.Salary" /></th>
+</tr></thead>
+			<tr ng-repeat="data in myData | filter : search">
+				<td>{{data.Job}}</td>
+				<td>{{data.Location}}</td>
+				<td>{{data.Salary}}</td>
+				
+			</tr>
+		</table></center>
+		<style>
+table, th , td  {
+  border: 4px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+    text-align:center;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+  text-align:center;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+  text-align:center;
+  }
+</style>
+	</body>
+</html>
